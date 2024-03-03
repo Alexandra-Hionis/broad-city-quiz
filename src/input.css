@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Offset border */
+.offset-border::after, .offset-border::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+   
+}
+
+/* Right border */
+.offset-border::after{
+    border-right: 22px solid #F4F037;
+    top: 22px;
+    right: -23px;
+}
+
+/* Left border */
+.offset-border::before {
+    border-bottom: 22px solid #F4F037;
+    top: 23px;
+    left: 22px;
+}
