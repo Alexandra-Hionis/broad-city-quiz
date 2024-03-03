@@ -9,7 +9,7 @@
   </head>
   <body class="flex p-8 items-center justify-center min-h-screen bg-gray-100">
     <!-- Start Welcome Div -->
-    <div class="welcome-container offset-border relative">
+    <div id="welcome-container" class="offset-border relative">
       <div
         class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl border-2 border-black"
       >
@@ -58,7 +58,7 @@
             </p>
             <button
               class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize"
-              id="start-quiz-button"
+              id="start-instructions-button"
             >
               Yass queen, let's go!
             </button>
@@ -67,5 +67,52 @@
       </div>
     </div>
     <!-- End Welcome Div -->
+
+    <!-- Start Instructions Div -->
+    <div id="instructions-container" class="offset-border relative">
+      <div
+        class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl border-2 border-black"
+      >
+        <!-- Instructions -->
+        <div class="p-8 relative z-40">
+          <h2
+            class="uppercase tracking-wide text-xl text-violet-500 font-semibold"
+          >
+            <span class="bg-gray-100"> Quiz Insructions</span>
+          </h2>
+          <h1 class="block mt-1 text-3xl leading-tight font-medium text-black">
+            Welcome to the Broad City Quiz!
+          </h1>
+          <p class="mt-2 text-slate-500">
+            1) Welcome to the Quiz! Answer the following questions to test your
+            knowledge.
+          </p>
+          <p class="mt-2 text-slate-500">
+            2) Select the correct option for each question and click to submit
+            your answer.
+          </p>
+          <p class="mt-2 text-slate-500">MORE TO BE ADDED</p>
+          <button
+            class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize"
+            id="start-quiz-button"
+          >
+            Alright, buckle up, my beautiful earthlings
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- End Instructions Div -->
+
+    <!-- Start Questions Div -->
+    <div id="questions-container" class="offset-border relative">
+      <div
+        class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl border-2 border-black"
+      >
+        <!-- Questions -->
+        <div id="questions"></div>
+      </div>
+    </div>
+    <!-- End Questions Div -->
+    <script src="./js/script.js"></script>
   </body>
 </html>

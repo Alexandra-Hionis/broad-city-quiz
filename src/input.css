@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom CSS */
+
 /* Offset border */
 .offset-border::after, .offset-border::before {
     content: "";
@@ -25,4 +27,9 @@
     border-bottom: 22px solid #F4F037;
     top: 23px;
     left: 22px;
+}
+
+/* hide by default */
+#instructions-container, #questions-container{
+    display: none;
 }
