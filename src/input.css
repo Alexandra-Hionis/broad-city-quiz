@@ -33,3 +33,8 @@
 #instructions-container, #questions-container{
     display: none;
 }
+
+/* temporary for testing */
+/* #instructions-container, #welcome-container{
+    display: none;
+} */
