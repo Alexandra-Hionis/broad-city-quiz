@@ -25,37 +25,55 @@ startQuizButton.onclick = function() {
 }
 
 // Questions
-const quizQuestions = [
+const quizItems = [
     {
         quizQuestion: 'How does Ilana describe her perfect man?',
-        options: ['Someone who can cook and is good with kids', 'A mix of Barack Obama and Drake', 'A billionaire with a yacht and a pet giraffe', 'A mime who only communicates in interpretive dance'],
+        option1: 'Someone who can cook and is good with kids',
+        option2: 'A mix of Barack Obama and Drake',
+        option3: 'A billionaire with a yacht and a pet giraffe',
+        option4: 'A mime who only communicates in interpretive dance',
         correctAnswer: 'A mix of Barack Obama and Drake'
     },
     {
         quizQuestion: "When Abbi and Ilana go to a fancy restaurant for Abbi's 26th birthday, Ilana has an allergic reaction to what?",
-        options: ['Wine', 'Peanuts', 'Shellfish', 'Soap'],
+        option1: 'Wine',
+        option2: 'Peanuts',
+        option3: 'Shellfish',
+        option4: 'Soap',
         correctAnswer: 'Shellfish'
     },
     {
         quizQuestion: 'What famous person did Abbi assist Trey in training at Soulstice?',
-        options: ['Shania Twain', 'Hilary Clinton', 'Oprah', 'Tina Fey'],
+        option1: 'Shania Twain',
+        option2: 'Hilary Clinton',
+        option3: 'Oprah',
+        option4: 'Tina Fey',
         correctAnswer: 'Shania Twain'
     },
     {
         quizQuestion: 'Abbi gets her wisdom teeth out and hallucinates a blue creature named ____?',
-        options: ['Bingo Bronson', 'Teal Tommy', 'Blueberry Bob', 'Periwinkle Pete'],
+        option1: 'Bingo Bronson',
+        option2: 'Teal Tommy',
+        option3: 'Blueberry Bob',
+        option4: 'Periwinkle Pete',
         correctAnswer: 'Bingo Bronson'
     },
     {
         quizQuestion: "What is the nickname Ilana gives to the secret bathroom in Abbi's workplace?",
-        options: ['Wonderland', 'Narnia', 'The Magic Throne', 'The Hidden Oasis'],
+        option1: 'Wonderland',
+        option2: 'Narnia',
+        option3: 'The Magic Throne',
+        option4: 'The Hidden Oasis',
         correctAnswer: 'The Magic Throne'
     },
     {
         quizQuestion: 'What is the name of the workout Abbi and Ilana try, which involves twerking as an exercise?',
-        options: ['BootyBurn', 'GluteGroove', 'RumpRage', 'TwerkFit'],
+        option1: 'BootyBurn',
+        option2: 'GluteGroove',
+        option3: 'RumpRage',
+        option4: 'TwerkFit',
         correctAnswer: 'TwerkFit'
-    },
+    }    
 ];
 
   
