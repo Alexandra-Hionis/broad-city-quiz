@@ -11,7 +11,7 @@
     <!-- Start Welcome Div -->
     <div id="welcome-container" class="offset-border relative">
       <div
-        class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl border-2 border-black"
+        class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl border-2 border-black relative z-40"
       >
         <div class="md:shrink-0 test">
           <div
@@ -38,8 +38,7 @@
               >via GIPHY</a
             >
           </p>
-
-          <div class="p-8 relative z-40">
+          <div class="p-8">
             <h2
               class="uppercase tracking-wide text-xl text-violet-500 font-semibold"
             >
@@ -71,80 +70,78 @@
     <!-- Start Instructions Div -->
     <div id="instructions-container" class="offset-border relative">
       <div
-        class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl border-2 border-black"
+        class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl border-2 border-black p-8 relative z-40"
       >
         <!-- Instructions -->
-        <div class="p-8 relative z-40">
-          <h2
-            class="uppercase tracking-wide text-xl text-violet-500 font-semibold"
-          >
-            <span class="bg-gray-100"> Quiz Insructions</span>
-          </h2>
-          <h1 class="block mt-1 text-3xl leading-tight font-medium text-black">
-            Welcome to the Broad City Quiz!
-          </h1>
-          <p class="mt-2 text-slate-500">
-            1) Welcome to the Quiz! Answer the following questions to test your
-            knowledge.
-          </p>
-          <p class="mt-2 text-slate-500">
-            2) Select the correct option for each question and click to submit
-            your answer.
-          </p>
-          <p class="mt-2 text-slate-500">MORE TO BE ADDED</p>
-          <button
-            class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize"
-            id="start-quiz-button"
-          >
-            Alright, buckle up, my beautiful earthlings
-          </button>
-        </div>
+
+        <h2
+          class="uppercase tracking-wide text-xl text-violet-500 font-semibold"
+        >
+          <span class="bg-gray-100"> Quiz Insructions</span>
+        </h2>
+        <h1 class="block mt-1 text-3xl leading-tight font-medium text-black">
+          Welcome to the Broad City Quiz!
+        </h1>
+        <p class="mt-2 text-slate-500">
+          1) Welcome to the Quiz! Answer the following questions to test your
+          knowledge.
+        </p>
+        <p class="mt-2 text-slate-500">
+          2) Select the correct option for each question and click to submit
+          your answer.
+        </p>
+        <p class="mt-2 text-slate-500">MORE TO BE ADDED</p>
+        <button
+          class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize"
+          id="start-quiz-button"
+        >
+          Alright, buckle up, my beautiful earthlings
+        </button>
       </div>
     </div>
     <!-- End Instructions Div -->
 
-    <div id="questions-container" class="offset-border relative">
+    <!-- Start Quiz Item  -->
+    <div id="quiz-item-container" class="offset-border relative">
       <div
-        class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl border-2 border-black flex"
+        class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl border-2 border-black flex p-8 relative z-40 md:min-w-96"
       >
-        <!-- Instructions -->
-        <div class="p-8 relative z-40 md:min-w-96">
-          <!-- Question -->
-          <div id="question">
-            <h1
-              class="block mt-1 text-3xl leading-tight font-medium text-black"
-            >
-              <!-- Question goes here-->
-            </h1>
-          </div>
+        <!-- Question -->
 
-          <!-- Answers -->
-          <div id="answers">
-            <p
-              class="mt-2 cursor-pointer text-slate-500 border border-violet-500 capitalize rounded-lg p-2 hover:bg-gray-100 hover:text-black flex justify-between"
-            >
-              <!-- answers go here -->
-              <span id="right-wrong-icon"> <!--❌--></span>
-            </p>
-          </div>
-          <button
-            class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize"
-            id="submitQuestion"
-          >
-            Submit
-          </button>
-          <button
-            disabled
-            class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize disabled:opacity-75"
-            id="nextQuestion"
-          >
-            Next
-          </button>
+        <h1
+          id="question"
+          class="block mt-1 text-3xl leading-tight font-medium text-black"
+        >
+          <!-- Question goes here-->
+        </h1>
+
+        <!-- Answers -->
+
+        <div id="answers-container">
+          <!-- answers go here -->
+          <span id="right-wrong-icon"> <!--❌--></span>
         </div>
-        <div class="p-2 m-5"><!--Question # out of length--></div>
+
+        <button
+          class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize"
+          id="submitQuestion"
+        >
+          Submit
+        </button>
+        <button
+          disabled
+          class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize disabled:opacity-75"
+          id="nextQuestion"
+        >
+          Next
+        </button>
+
+        <!-- <div class="p-2 m-5"> -->
+        <!--Question # out of length-->
+        <!-- </div> -->
       </div>
     </div>
-
+    <!-- End Quiz Item  -->
     <script src="./js/script.js"></script>
   </body>
 </html>

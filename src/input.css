@@ -30,9 +30,9 @@
 }
 
 /* hide by default */
-#instructions-container, #questions-container{
+/* #instructions-container, #quiz-item-container{
     display: none;
-}
+} */
 
 /* temporary for testing */
 /* #instructions-container, #welcome-container{
