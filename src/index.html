@@ -102,44 +102,8 @@
     <!-- End Instructions Div -->
 
     <!-- Start Quiz Item  -->
-    <div id="quiz-item-container" class="offset-border relative">
-      <div
-        class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl border-2 border-black flex p-8 relative z-40 md:min-w-96"
-      >
-        <!-- Question -->
-
-        <h1
-          id="question"
-          class="block mt-1 text-3xl leading-tight font-medium text-black"
-        >
-          <!-- Question goes here-->
-        </h1>
-
-        <!-- Answers -->
-
-        <div id="answers-container">
-          <!-- answers go here -->
-          <span id="right-wrong-icon"> <!--❌--></span>
-        </div>
-
-        <button
-          class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize"
-          id="submitQuestion"
-        >
-          Submit
-        </button>
-        <button
-          disabled
-          class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize disabled:opacity-75"
-          id="nextQuestion"
-        >
-          Next
-        </button>
-
-        <!-- <div class="p-2 m-5"> -->
-        <!--Question # out of length-->
-        <!-- </div> -->
-      </div>
+    <div id="question-container" class="offset-border relative">
+      <!-- load questions dynamically -->
     </div>
     <!-- End Quiz Item  -->
     <script src="./js/script.js"></script>
