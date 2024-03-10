@@ -15,6 +15,7 @@ let answerOption4 = document.getElementById("answer-option4");
 const submitBtn = document.getElementById("submitQuestion");
 const nextBtn = document.getElementById("nextQuestion");
 let answers = document.querySelectorAll(".answers");
+let questionTracker = document.getElementById("question-tracker");
 
 // fire instructions
 startInstructionsButton.onclick = function () {
@@ -121,6 +122,10 @@ function updateQuestionContent() {
   answerOption4.innerHTML = `${quizQuestion.option4}`;
 }
 
+// Update question tracker by getting the current index out of total array length.
+questionTracker.innerHTML = `Question ${currentQuestionIndex + 1} out of ${
+  quizQuestions.length
+}`;
 // Call updateQuestionContent to initially display the first question
 updateQuestionContent();
 
