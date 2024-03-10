@@ -29,6 +29,13 @@
     left: 22px;
 }
 
+/* Active Answer */
+.activeAnswer{
+    /* background-color: rgb(243 244 246 / var(--tw-bg-opacity)); */
+    background-color: rgb(124 58 237 / var(--tw-bg-opacity));
+    color: white;
+    border: solid black 2px;
+}
 /* hide by default */
 /* #instructions-container, #question-container{
     display: none;

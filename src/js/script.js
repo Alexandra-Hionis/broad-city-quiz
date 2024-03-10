@@ -14,6 +14,7 @@ let answerOption3 = document.getElementById("answer-option3");
 let answerOption4 = document.getElementById("answer-option4");
 const submitBtn = document.getElementById("submitQuestion");
 const nextBtn = document.getElementById("nextQuestion");
+let answers = document.querySelectorAll(".answers");
 
 // fire instructions
 startInstructionsButton.onclick = function () {
@@ -122,3 +123,17 @@ function updateQuestionContent() {
 
 // Call updateQuestionContent to initially display the first question
 updateQuestionContent();
+
+// Loop through each item
+answers.forEach(function (answer) {
+  // Add a click event listener to each answer
+  answer.addEventListener("click", function () {
+    // Remove 'active' class from all answers
+    answers.forEach(function (otherAnswer) {
+      otherAnswer.classList.remove("activeAnswer");
+    });
+
+    // Add 'active' class to the clicked answer
+    answer.classList.add("activeAnswer");
+  });
+});
