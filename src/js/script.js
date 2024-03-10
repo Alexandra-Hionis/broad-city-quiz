@@ -8,6 +8,13 @@ const instructionsContainer = document.getElementById("instructions-container");
 const questionContainer = document.getElementById("question-container");
 let individualQuestion = document.getElementById("question");
 let answerContainer = document.getElementById("answers-container");
+let answerOption1 = document.getElementById("answer-option1");
+let answerOption2 = document.getElementById("answer-option2");
+let answerOption3 = document.getElementById("answer-option3");
+let answerOption4 = document.getElementById("answer-option4");
+const submitBtn = document.getElementById("submitQuestion");
+const nextBtn = document.getElementById("nextQuestion");
+
 // fire instructions
 startInstructionsButton.onclick = function () {
   startInstructionsButton.classList.add("active");
@@ -83,70 +90,35 @@ const quizQuestions = [
   },
 ];
 
-// Iterate through the array and generate HTML content for each object
-quizQuestions.forEach((quizQuestion, index) => {
-  const htmlContent = `
+// Index to keep track of the current Question
+let currentQuestionIndex = 0;
 
-    <div
-    class="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl border-2 border-black flex"
-  >
-    <!-- Question -->
-    <div class="p-8 relative z-40 md:min-w-96">
-      <h1
-        id="question"
-        class="block mt-1 text-3xl leading-tight font-medium text-black"
-      >
-      Question ${index + 1}: ${quizQuestion.question}
-      </h1>
+// Function to go to the next question
+function nextQuestion() {
+  if (currentQuestionIndex < quizQuestions.length) {
+    currentQuestionIndex++;
+    updateQuestionContent();
+  }
+}
 
-      <!-- Answers -->
+function updateQuestionContent() {
+  // Clear existing content in the questionContainer
+  //   questionContainer.innerHTML = "";
 
-      <div id="answers-container">
-        <!-- answers go here -->
-      <p
-          class="mt-2 cursor-pointer text-slate-500 border border-violet-500 capitalize rounded-lg p-2 hover:bg-gray-100 hover:text-black flex justify-between"
-        >
-        ${quizQuestion.option1}
-        </p> 
-        <p
-        class="mt-2 cursor-pointer text-slate-500 border border-violet-500 capitalize rounded-lg p-2 hover:bg-gray-100 hover:text-black flex justify-between"
-      >
-        ${quizQuestion.option2}
-      </p> 
-      <p
-      class="mt-2 cursor-pointer text-slate-500 border border-violet-500 capitalize rounded-lg p-2 hover:bg-gray-100 hover:text-black flex justify-between"
-    >
-        ${quizQuestion.option3}
-    </p> 
-    <p
-    class="mt-2 cursor-pointer text-slate-500 border border-violet-500 capitalize rounded-lg p-2 hover:bg-gray-100 hover:text-black flex justify-between"
-  >
-        ${quizQuestion.option4}
-  </p> 
-        <span id="right-wrong-icon"> <!--❌--></span>
-      </div>
+  // Generate HTML content for the current question
+  const quizQuestion = quizQuestions[currentQuestionIndex];
+  console.log(`Question ${currentQuestionIndex + 1}: ${quizQuestion.question}`);
 
-      <button
-        class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize"
-        id="submitQuestion"
-      >
-        Submit
-      </button>
-      <button
-        disabled
-        class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize disabled:opacity-75"
-        id="nextQuestion"
-      >
-        Next
-      </button>
+  // add one to the current index so it's not off by one since it starts at
+  individualQuestion.innerHTML = `${currentQuestionIndex + 1}) ${
+    quizQuestion.question
+  }`;
 
-      <!-- <div class="p-2 m-5"> -->
-      <!--Question # out of length-->
-      <!-- </div> -->
-    </div>
-  </div>
-  `;
+  answerOption1.innerHTML = `${quizQuestion.option1}`;
+  answerOption2.innerHTML = `${quizQuestion.option2}`;
+  answerOption3.innerHTML = `${quizQuestion.option3}`;
+  answerOption4.innerHTML = `${quizQuestion.option4}`;
+}
 
-  // Append the HTML content to the container
-  questionContainer.innerHTML += htmlContent;
-});
+// Call updateQuestionContent to initially display the first question
+updateQuestionContent();
