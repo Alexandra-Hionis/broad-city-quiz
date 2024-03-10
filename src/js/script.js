@@ -109,7 +109,7 @@ function updateQuestionContent() {
 
   // Generate HTML content for the current question
   const quizQuestion = quizQuestions[currentQuestionIndex];
-  console.log(`Question ${currentQuestionIndex + 1}: ${quizQuestion.question}`);
+  //   console.log(`Question ${currentQuestionIndex + 1}: ${quizQuestion.question}`);
 
   // add one to the current index so it's not off by one since it starts at
   individualQuestion.innerHTML = `${currentQuestionIndex + 1}) ${
@@ -120,6 +120,31 @@ function updateQuestionContent() {
   answerOption2.innerHTML = `${quizQuestion.option2}`;
   answerOption3.innerHTML = `${quizQuestion.option3}`;
   answerOption4.innerHTML = `${quizQuestion.option4}`;
+
+  // Define selected answer
+  let selectedAnswer;
+  // Loop through each item
+  answers.forEach(function (answer) {
+    // Add a click event listener to each answer
+    answer.addEventListener("click", function () {
+      // Remove 'active' class from all answers
+      answers.forEach(function (otherAnswer) {
+        otherAnswer.classList.remove("activeAnswer");
+      });
+
+      // Add 'active' class to the clicked answer
+      answer.classList.add("activeAnswer");
+
+      // Update the selectedAnswer variable
+      selectedAnswer = answer.innerHTML;
+
+      if (selectedAnswer === `${quizQuestion.correctAnswer}`) {
+        console.log("RIGHT");
+      } else {
+        console.log("wrong");
+      }
+    });
+  });
 }
 
 // Update question tracker by getting the current index out of total array length.
@@ -128,17 +153,3 @@ questionTracker.innerHTML = `Question ${currentQuestionIndex + 1} out of ${
 }`;
 // Call updateQuestionContent to initially display the first question
 updateQuestionContent();
-
-// Loop through each item
-answers.forEach(function (answer) {
-  // Add a click event listener to each answer
-  answer.addEventListener("click", function () {
-    // Remove 'active' class from all answers
-    answers.forEach(function (otherAnswer) {
-      otherAnswer.classList.remove("activeAnswer");
-    });
-
-    // Add 'active' class to the clicked answer
-    answer.classList.add("activeAnswer");
-  });
-});
