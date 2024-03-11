@@ -117,49 +117,58 @@
 
           <!-- Answers -->
 
-          <div id="answers-container">
+          <div id="answers-container" class="mt-6">
             <p
               id="answer-option1"
               class="answers mt-2 cursor-pointer text-slate-500 border border-violet-500 capitalize rounded-lg p-2 hover:bg-gray-100 hover:text-black flex justify-between"
             >
               <!-- Answer1 loads here -->
             </p>
+
             <p
               id="answer-option2"
               class="answers mt-2 cursor-pointer text-slate-500 border border-violet-500 capitalize rounded-lg p-2 hover:bg-gray-100 hover:text-black flex justify-between"
             >
               <!-- Answer2 loads here -->
             </p>
+
             <p
               id="answer-option3"
               class="answers mt-2 cursor-pointer text-slate-500 border border-violet-500 capitalize rounded-lg p-2 hover:bg-gray-100 hover:text-black flex justify-between"
             >
               <!-- Answer3 loads here -->
             </p>
+
             <p
               id="answer-option4"
               class="answers mt-2 cursor-pointer text-slate-500 border border-violet-500 capitalize rounded-lg p-2 hover:bg-gray-100 hover:text-black flex justify-between"
             >
               <!-- Answer4 loads here -->
             </p>
-            <span id="right-wrong-icon"> <!--❌--></span>
           </div>
 
           <button
-            class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize"
+            disabled
+            class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-4 transition duration-0 hover:duration-300 capitalize disabled:opacity-75 disabled"
             id="submitQuestion"
           >
             Submit
           </button>
           <button
             disabled
-            class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-2 transition duration-0 hover:duration-300 capitalize disabled:opacity-75"
+            class="border-2 border-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-lg text-sm shadow-sm py-2 px-3 text-violet-500 hover:text-white mt-4 transition duration-0 hover:duration-300 capitalize disabled:opacity-75 disabled"
             id="nextQuestion"
           >
             Next
           </button>
-
-          <div id="question-tracker" class="p-2 mt-6"></div>
+          <!-- Start feedback -->
+          <div id="feedback-container" class="mt-6">
+            <div id="feedback-container">
+              <h1 id="feedback-message" class=""></h1>
+            </div>
+          </div>
+          <!-- End feedback -->
+          <div id="question-tracker" class="p-2 mt-4"></div>
         </div>
       </div>
     </div>

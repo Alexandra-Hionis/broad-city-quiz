@@ -16,6 +16,10 @@ const submitBtn = document.getElementById("submitQuestion");
 const nextBtn = document.getElementById("nextQuestion");
 let answers = document.querySelectorAll(".answers");
 let questionTracker = document.getElementById("question-tracker");
+let feedbackMessage = document.getElementById("feedback-message");
+
+// Define selected answer
+let selectedAnswer;
 
 // fire instructions
 startInstructionsButton.onclick = function () {
@@ -96,12 +100,12 @@ const quizQuestions = [
 let currentQuestionIndex = 0;
 
 // Function to go to the next question
-function nextQuestion() {
-  if (currentQuestionIndex < quizQuestions.length) {
-    currentQuestionIndex++;
-    updateQuestionContent();
-  }
-}
+// function nextQuestion() {
+//   if (currentQuestionIndex < quizQuestions.length) {
+//     currentQuestionIndex++;
+//     updateQuestionContent();
+//   }
+// }
 
 function updateQuestionContent() {
   // Clear existing content in the questionContainer
@@ -121,12 +125,14 @@ function updateQuestionContent() {
   answerOption3.innerHTML = `${quizQuestion.option3}`;
   answerOption4.innerHTML = `${quizQuestion.option4}`;
 
-  // Define selected answer
-  let selectedAnswer;
-  // Loop through each item
+  // Loop through each answer
   answers.forEach(function (answer) {
     // Add a click event listener to each answer
     answer.addEventListener("click", function () {
+      // remove disabled property from submit
+      submitBtn.disabled = false;
+      //   clear feedback message. repopulates when submit is clicked
+      feedbackMessage.innerHTML = "";
       // Remove 'active' class from all answers
       answers.forEach(function (otherAnswer) {
         otherAnswer.classList.remove("activeAnswer");
@@ -137,16 +143,36 @@ function updateQuestionContent() {
 
       // Update the selectedAnswer variable
       selectedAnswer = answer.innerHTML;
-
-      if (selectedAnswer === `${quizQuestion.correctAnswer}`) {
-        console.log("RIGHT");
-      } else {
-        console.log("wrong");
-      }
     });
   });
-}
 
+  // Add event listener for submit button click
+  submitBtn.addEventListener("click", function () {
+    if (selectedAnswer === quizQuestion.correctAnswer) {
+      //   console.log("RIGHT");
+      feedbackMessage.innerHTML = "Slay, queen! Nailed it! 💃✨";
+      feedbackMessage.style.color = "green";
+      nextBtn.disabled = false;
+      // Loop through each answer
+      answers.forEach(function (answer) {
+        if (answer.innerHTML === quizQuestion.correctAnswer) {
+          answer.style.backgroundColor = "green";
+          answer.style.color = "white";
+        } else {
+          answer.style.pointerEvents = "none";
+        }
+      });
+      answers.forEach(function (otherAnswer) {
+        otherAnswer.classList.remove("activeAnswer");
+      });
+    } else {
+      //   console.log("wrong");
+      feedbackMessage.innerHTML =
+        "Oh snap! Wrong answer, pal. Shake it off, babe, you got this! 🌈🚀";
+      feedbackMessage.style.color = "red";
+    }
+  });
+}
 // Update question tracker by getting the current index out of total array length.
 questionTracker.innerHTML = `Question ${currentQuestionIndex + 1} out of ${
   quizQuestions.length

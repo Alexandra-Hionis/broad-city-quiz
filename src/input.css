@@ -37,11 +37,15 @@
     border: solid black 2px;
 }
 /* hide by default */
-/* #instructions-container, #question-container{
+#instructions-container, #question-container{
     display: none;
-} */
+}
 
 /* temporary for testing */
 /* #instructions-container, #welcome-container{
     display: none;
 } */
+
+/* .disabled{
+    cursor: not-allowed;
+}   */
