@@ -100,6 +100,10 @@ const quizQuestions = [
 let currentQuestionIndex = 0;
 
 function updateQuestionContent() {
+  // Update question tracker by getting the current index out of total array length.
+  questionTracker.innerHTML = `Question ${currentQuestionIndex + 1} out of ${
+    quizQuestions.length
+  }`;
   // Clear existing content in the questionContainer
   //   questionContainer.innerHTML = "";
   let currentQuizQuestion = quizQuestions[currentQuestionIndex];
@@ -188,13 +192,6 @@ function nextQuestion() {
 nextBtn.addEventListener("click", function () {
   nextQuestion();
 });
-// Update question tracker by getting the current index out of total array length.
-questionTracker.innerHTML = `Question ${currentQuestionIndex + 1} out of ${
-  quizQuestions.length
-}`;
+
 // Call updateQuestionContent to initially display the first question
 updateQuestionContent();
-
-//     currentQuestionIndex++;
-//     updateQuestionContent();
-//   }
