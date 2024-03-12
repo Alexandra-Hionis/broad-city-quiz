@@ -165,7 +165,8 @@ function updateQuestionContent() {
   });
 }
 function nextQuestion() {
-  if (currentQuestionIndex < quizQuestions.length) {
+  if (currentQuestionIndex < quizQuestions.length - 1) {
+    submitBtn.disabled = true;
     feedbackMessage.innerHTML = "";
     currentQuestionIndex++;
 
