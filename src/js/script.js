@@ -99,31 +99,19 @@ const quizQuestions = [
 // Index to keep track of the current Question
 let currentQuestionIndex = 0;
 
-// Function to go to the next question
-// function nextQuestion() {
-//   if (currentQuestionIndex < quizQuestions.length) {
-//     currentQuestionIndex++;
-//     updateQuestionContent();
-//   }
-// }
-
 function updateQuestionContent() {
   // Clear existing content in the questionContainer
   //   questionContainer.innerHTML = "";
-
-  // Generate HTML content for the current question
-  const quizQuestion = quizQuestions[currentQuestionIndex];
-  //   console.log(`Question ${currentQuestionIndex + 1}: ${quizQuestion.question}`);
-
+  let currentQuizQuestion = quizQuestions[currentQuestionIndex];
   // add one to the current index so it's not off by one since it starts at
   individualQuestion.innerHTML = `${currentQuestionIndex + 1}) ${
-    quizQuestion.question
+    currentQuizQuestion.question
   }`;
 
-  answerOption1.innerHTML = `${quizQuestion.option1}`;
-  answerOption2.innerHTML = `${quizQuestion.option2}`;
-  answerOption3.innerHTML = `${quizQuestion.option3}`;
-  answerOption4.innerHTML = `${quizQuestion.option4}`;
+  answerOption1.innerHTML = `${currentQuizQuestion.option1}`;
+  answerOption2.innerHTML = `${currentQuizQuestion.option2}`;
+  answerOption3.innerHTML = `${currentQuizQuestion.option3}`;
+  answerOption4.innerHTML = `${currentQuizQuestion.option4}`;
 
   // Loop through each answer
   answers.forEach(function (answer) {
@@ -148,18 +136,17 @@ function updateQuestionContent() {
 
   // Add event listener for submit button click
   submitBtn.addEventListener("click", function () {
-    if (selectedAnswer === quizQuestion.correctAnswer) {
+    if (selectedAnswer === currentQuizQuestion.correctAnswer) {
       //   console.log("RIGHT");
       feedbackMessage.innerHTML = "Slay, queen! Nailed it! 💃✨";
       feedbackMessage.style.color = "green";
       nextBtn.disabled = false;
       // Loop through each answer
       answers.forEach(function (answer) {
-        if (answer.innerHTML === quizQuestion.correctAnswer) {
-          answer.style.backgroundColor = "green";
-          answer.style.color = "white";
+        if (answer.innerHTML === currentQuizQuestion.correctAnswer) {
+          answer.classList.add("correct-answer");
         } else {
-          answer.style.pointerEvents = "none";
+          answer.classList.add("cursor-disabled");
         }
       });
       answers.forEach(function (otherAnswer) {
@@ -173,9 +160,41 @@ function updateQuestionContent() {
     }
   });
 }
+function nextQuestion() {
+  if (currentQuestionIndex < quizQuestions.length) {
+    feedbackMessage.innerHTML = "";
+    currentQuestionIndex++;
+
+    // Loop through each answer to remove styles
+    let currentQuizQuestion = quizQuestions[currentQuestionIndex];
+    answers.forEach(function (answer) {
+      if (answer.innerHTML === currentQuizQuestion.correctAnswer) {
+        answer.classList.remove("correct-answer");
+      } else {
+        nextBtn.disabled = true;
+        answers.forEach(function (otherAnswer) {
+          answer.classList.remove("cursor-disabled");
+          otherAnswer.classList.add("cursor-pointer");
+          answer.classList.remove("correct-answer");
+        });
+      }
+    });
+
+    updateQuestionContent();
+  }
+}
+
+// Add event listener for next button click
+nextBtn.addEventListener("click", function () {
+  nextQuestion();
+});
 // Update question tracker by getting the current index out of total array length.
 questionTracker.innerHTML = `Question ${currentQuestionIndex + 1} out of ${
   quizQuestions.length
 }`;
 // Call updateQuestionContent to initially display the first question
 updateQuestionContent();
+
+//     currentQuestionIndex++;
+//     updateQuestionContent();
+//   }

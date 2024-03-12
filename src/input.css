@@ -38,14 +38,22 @@
 }
 /* hide by default */
 #instructions-container, #question-container{
-    display: none;
+    /* display: none; */
 }
 
 /* temporary for testing */
-/* #instructions-container, #welcome-container{
+#instructions-container, #welcome-container{
     display: none;
-} */
+}
 
-/* .disabled{
-    cursor: not-allowed;
-}   */
+.correct-answer{
+    background-color: green;
+    color: white;
+}
+.cursor-disabled{
+    pointer-events: none;
+}
+
+.cursor-pointer{
+pointer-events: pointer;
+}
