@@ -37,14 +37,11 @@
     border: solid black 2px;
 }
 /* hide by default */
-#instructions-container, #question-container{
-    /* display: none; */
-}
-
-/* temporary for testing */
-#instructions-container, #welcome-container{
+#instructions-container, #question-container, #completed-quiz-container{
     display: none;
 }
+
+
 
 .correct-answer{
     background-color: green;

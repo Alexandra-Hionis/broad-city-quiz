@@ -17,6 +17,9 @@ const nextBtn = document.getElementById("nextQuestion");
 let answers = document.querySelectorAll(".answers");
 let questionTracker = document.getElementById("question-tracker");
 let feedbackMessage = document.getElementById("feedback-message");
+const quizCompleteContainer = document.getElementById(
+  "completed-quiz-container"
+);
 
 // Define selected answer
 let selectedAnswer;
@@ -149,6 +152,7 @@ function updateQuestionContent() {
       answers.forEach(function (answer) {
         if (answer.innerHTML === currentQuizQuestion.correctAnswer) {
           answer.classList.add("correct-answer");
+          answer.classList.add("cursor-disabled");
         } else {
           answer.classList.add("cursor-disabled");
         }
@@ -162,8 +166,23 @@ function updateQuestionContent() {
         "Oh snap! Wrong answer, pal. Shake it off, babe, you got this! 🌈🚀";
       feedbackMessage.style.color = "red";
     }
+    //   if current question index matches total array length = last question AND if the selected submitted answer matches the correct answer game over
+    if (
+      currentQuestionIndex === quizQuestions.length - 1 &&
+      selectedAnswer === currentQuizQuestion.correctAnswer
+    ) {
+      console.log("Game Over");
+      setTimeout(() => {
+        questionContainer.style.display = "none";
+        quizCompleteContainer.style.display = "block";
+      }, "2000");
+    }
   });
+  checkLastQuestion();
 }
+// Call updateQuestionContent to display the first question
+updateQuestionContent();
+
 function nextQuestion() {
   if (currentQuestionIndex < quizQuestions.length - 1) {
     submitBtn.disabled = true;
@@ -194,5 +213,18 @@ nextBtn.addEventListener("click", function () {
   nextQuestion();
 });
 
-// Call updateQuestionContent to initially display the first question
-updateQuestionContent();
+// Check to see if last question based on index
+function checkLastQuestion() {
+  if (currentQuestionIndex === quizQuestions.length - 1) {
+    nextBtn.style.display = "none";
+  } else {
+    nextBtn.style.display = "inline-block";
+  }
+}
+// reset
+document
+  .getElementById("resetPageButton")
+  .addEventListener("click", function () {
+    // Reload the current page
+    window.location.reload();
+  });
