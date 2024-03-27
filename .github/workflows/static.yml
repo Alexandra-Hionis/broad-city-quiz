@@ -36,17 +36,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload content from the 'src' directory
-      - name: Upload src artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
+          # Upload content from the root-level 'src' directory
           path: "src"
-
-      # Upload content from the 'dist' directory
-      - name: Upload dist artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "dist"
 
       - name: Deploy to GitHub Pages
         id: deployment
